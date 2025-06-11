@@ -1,0 +1,9 @@
+.component {
+  color: var(--input);
+  font-weight: bold;
+  border: 2px solid var(--ring);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  background: var(--accent);
+}

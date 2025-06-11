@@ -1,0 +1,100 @@
+@import "tailwindcss";
+@import "./components/btn.css";
+@import "./components/card.css";
+@import "./components/badge.css";
+@import "./components/dialog.css";
+
+/* Sourcegraph Color Theme Override */
+:root {
+  --radius: 0.625rem;
+  /* Sourcegraph Base Colors */
+  --background: #060000; /* vermilion-0 */
+  --foreground: #fff3f0; /* vermilion-11 */
+  --card: #0e0e0e; /* greyscale-1 */
+  --card-foreground: #fff3f0; /* vermilion-11 */
+  --popover: #0e0e0e; /* greyscale-1 */
+  --popover-foreground: #fff3f0; /* vermilion-11 */
+  --primary: #da251b; /* vermilion-6 */
+  --primary-foreground: #fff3f0; /* vermilion-11 */
+  --secondary: #343434; /* greyscale-3 */
+  --secondary-foreground: #fff3f0; /* vermilion-11 */
+  --muted: #202020; /* greyscale-2 */
+  --muted-foreground: #909090; /* greyscale-7 */
+  --accent: #914bdc; /* violet-6 */
+  --accent-foreground: #fff3f0; /* vermilion-11 */
+  --destructive: #b80000; /* vermilion-5 */
+  --border: #343434; /* greyscale-3 */
+  --input: #202020; /* greyscale-2 */
+  --ring: #da251b; /* vermilion-6 */
+}
+
+@theme {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+/* Apply Sourcegraph fonts */
+body {
+  font-family: "Poly Sans", Arial, sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-background text-foreground overscroll-none antialiased;
+  }
+  .scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+
+    &::-webkit-scrollbar {
+      width: var(--scrollbar-width);
+    }
+    &::-webkit-scrollbar-track {
+      background: var(--scrollbar-track);
+    }
+    &::-webkit-scrollbar-thumb {
+      background: var(--scrollbar-thumb);
+      border-radius: var(--scrollbar-radius);
+    }
+  }
+  /* Alpine.js */
+  [x-cloak] {
+    display: none !important;
+  }
+
+  .flow > * + * {
+    margin-block-start: var(--flow-space, 1em);
+  }
+
+  .section {
+    max-width: 80ch;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+}
